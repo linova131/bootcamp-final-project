@@ -11,7 +11,6 @@ function Home(){
 
     return (
     <header>
-        <h1>JJSMHL Movie Site</h1>
         <MovieContainer data={movieData} />
     </header>
     )
