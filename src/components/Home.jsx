@@ -7,18 +7,18 @@ function Home(){
 
     const [movieData, setMovieData] = useState([]);
 
-    function fetchMovies(){
-        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
+    async function fetchMovies(){
+        await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
         .then(response => setMovieData(response.data.results))
     }
 
     useEffect(() => {
-        fetchMovies()
+        fetchMovies();
     }, []);
-
+    console.log(movieData);
     return (
     <header>
-        <h1>HOMEPAGE</h1>
+        <h1>JJSMHL Movie Site</h1>
         <MovieContainer data={movieData} />
     </header>
     )

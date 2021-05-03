@@ -1,8 +1,12 @@
 import React from 'react';
 
 function Movie(props) {
-  return ( 
-    <h6>This is a movie called {props.title}</h6>
+  return (
+    <React.Fragment>
+    <img src={props.poster}></img>
+    <h1>{props.title}</h1>
+    <h3>{props.description}</h3>
+    </React.Fragment> 
    )
 }
  
