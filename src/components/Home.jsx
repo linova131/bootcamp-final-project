@@ -10,9 +10,22 @@ function Home(){
     }, []);
 
     return (
-    <header>
-        <MovieContainer data={movieData} />
-    </header>
+        <main className="main-content">
+        <div className="container">
+          <div className="page">
+            
+            <div className="content">
+              <div className="row">
+                <div className="col-md-6">
+                  
+                <MovieContainer data={movieData} />
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     )
 }
 
