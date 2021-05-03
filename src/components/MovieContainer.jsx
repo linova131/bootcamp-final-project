@@ -8,6 +8,7 @@ function MovieContainer(props) {
   for (let i=0; i<=2; i++) {
     const title = data[i].original_title;
     const description = data[i].overview;
+    const id = data[i].id;
 
     function buildMoviePoster(movieData) {
       let filePath = data[i].poster_path;
@@ -16,7 +17,7 @@ function MovieContainer(props) {
 
     const poster = buildMoviePoster();
 
-    movies.push(<Movie title={title} description={description} poster={poster}/>)
+    movies.push(<Movie key={id} id={id} title={title} description={description} poster={poster}/>)
   }
   return (
     <React.Fragment>
