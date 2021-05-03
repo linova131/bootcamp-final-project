@@ -17,13 +17,20 @@ function MovieDetail() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
+    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=credits`)
       .then((response) => {
+        console.log(response)
         setTitle(response.data.title)
         setOverview(response.data.overview)
         setRuntime(response.data.runtime)
         setRating(response.data.vote_average)
-      })
+        const actorData = response.data.credits.cast;
+        let names = [];
+        for (let i=0; i<=2; i++) {
+          names.push(actorData[i].name)
+        }
+        setActors(names)
+        })
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => {
