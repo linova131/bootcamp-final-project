@@ -40,14 +40,35 @@ function MovieDetail() {
   }, [id])
 
   return (
-    <div className="content">
-      <div className="row">
-        <div className="col-md-6">
-         <h3>This is the Movie Detail page for {title}!!</h3>
-         <p>{overview}</p>
+    <main className="main-content">
+      <div className="container">
+        <div className="page">
+          
+          <div className="content">
+            <div className="row">
+              <div className="col-md-6">
+                <h2 className="movie-title">{title}</h2>
+                <div className="movie-summary">
+                   <p>{overview}</p>
+                </div>
+                
+                <ul className="movie-meta">
+                  <li><strong>Rating:</strong><span> {rating}</span></li>
+                  <li><strong>Length:</strong> {runtime} minutes</li>
+                </ul>
+
+                <ul className="starring">
+                  <li><strong>Directors: </strong></li>
+                  <li><strong>Stars: </strong>{actors}</li>
+                </ul>
+
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 };
 
