@@ -30,6 +30,14 @@ function MovieDetail() {
           names.push(actorData[i].name)
         }
         setActors(names)
+        const crewData = response.data.credits.crew;
+        let directorNames = [];
+        for (let x=0; x<crewData.length; x++) {
+          if (crewData[x].job === "Director") {
+            directorNames.push(crewData[x].name);
+          }
+        }
+        setDirectors(directorNames)
         })
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`)
@@ -58,8 +66,8 @@ function MovieDetail() {
                 </ul>
 
                 <ul className="starring">
-                  <li><strong>Directors: </strong></li>
-                  <li><strong>Stars: </strong>{actors}</li>
+                  <li><strong>Directors: </strong>{directors}</li>
+                  <li><strong>Stars: </strong>{actors[0]}, {actors[1]}, and {actors[2]}</li>
                 </ul>
 
 

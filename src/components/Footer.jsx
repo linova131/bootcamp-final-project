@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Footer() {
 
   return (
     <footer className="site-footer">
@@ -9,4 +9,4 @@ function Header() {
   )
 };
 
-export default Header;
+export default Footer;
