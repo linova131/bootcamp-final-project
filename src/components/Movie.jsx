@@ -9,7 +9,7 @@ function Movie(props) {
       <img src={props.poster}></img>
     </Link>
     <h1>{props.title}</h1>
-    <h3>{props.description}</h3>
+    <p>{props.description}</p>
     </React.Fragment> 
    )
 }
