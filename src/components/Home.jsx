@@ -7,7 +7,6 @@ function Home(){
 
     useEffect(() => {
         fetchMovies();
-        console.log(movieData)
     }, []);
 
     return (
@@ -15,18 +14,16 @@ function Home(){
         <div className="container">
           <div className="page">
             
-            <div className="content">
+
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                  {
                    (movieData.length > 0)
                    ? <MovieContainer data={movieData} />
                    : <p>Loading...</p>
                  } 
-                {/* <MovieContainer data={movieData} /> */}
-  
                 </div>
-              </div>
+    
             </div>
           </div>
         </div>
