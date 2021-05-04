@@ -12,7 +12,7 @@ function MovieContainer(props) {
 
     function buildMoviePoster(movieData) {
       let filePath = data[i].poster_path;
-      return `https://image.tmdb.org/t/p/w500/${filePath}`
+      return `https://image.tmdb.org/t/p/w200/${filePath}`
     };
 
     const poster = buildMoviePoster();
