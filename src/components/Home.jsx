@@ -4,10 +4,10 @@ import MovieContainer from './MovieContainer';
 
 function Home(){
     const {movieData, fetchMovies} = useContext(Context);
-
-    useEffect(() => {
-        fetchMovies();
-    }, []);
+  console.log(movieData);
+    // useEffect(() => {
+    //     fetchMovies();
+    // }, []);
 
     return (
         <main className="main-content">
@@ -18,7 +18,7 @@ function Home(){
               <div className="row">
                 <div className="col-md-6">
                   
-                <MovieContainer data={movieData} />
+                <MovieContainer />
   
                 </div>
               </div>

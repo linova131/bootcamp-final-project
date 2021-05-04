@@ -1,24 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Movie from './Movie';
+import Context from '../Context';
 
 function MovieContainer(props) {
-  const data = props.data;
+  const movieData = useContext(Context);
+  // const data = props.data;
+  console.log(movieData);
   let movies = [];
-
-  for (let i=0; i<=2; i++) {
-    const title = data[i].original_title;
-    const description = data[i].overview;
-    const id = data[i].id;
-
-    function buildMoviePoster(movieData) {
-      let filePath = data[i].poster_path;
-      return `https://image.tmdb.org/t/p/w200/${filePath}`
-    };
-
-    const poster = buildMoviePoster();
-
-    movies.push(<Movie key={id} id={id} title={title} description={description} poster={poster}/>)
-  }
+  if (movieData) {
+    for (let i=0; i<=2; i++) {
+      const title = movieData[i].original_title;
+      const description = movieData[i].overview;
+      const id = movieData[i].id;
+  
+      function buildMoviePoster(movieData) {
+        let filePath = movieData[i].poster_path;
+        return `https://image.tmdb.org/t/p/w200/${filePath}`
+      };
+  
+      const poster = buildMoviePoster();
+  
+      movies.push(<Movie key={id} id={id} title={title} description={description} poster={poster}/>)
+    }
+  } 
+  
   return (
     <React.Fragment>
     {movies}
