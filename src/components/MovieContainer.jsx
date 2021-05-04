@@ -27,7 +27,16 @@ function MovieContainer(props) {
       />
     );
   }
-  return <React.Fragment>{movies}</React.Fragment>;
+  console.log(typeof movies);
+  return (  
+  <React.Fragment>
+    {/* {(data.length > 0)
+    ? {movies}
+    : <p>Loading...</p>
+    } */}
+    {movies}
+  </React.Fragment>
+  );
 }
 
 export default MovieContainer;

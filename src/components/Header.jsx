@@ -1,7 +1,7 @@
 import React, {useRef, useState, useContext} from 'react';
 import Context from '../Context';
 
-function Header() {
+function Header(props) {
 	const {performSearch} = useContext(Context);
 	const [query, setQuery] = useState('');
 	const searchbar = useRef('');
@@ -14,6 +14,7 @@ function Header() {
 	function handleSubmit(e) {
 		e.preventDefault();
 		performSearch(query);
+		window.location.href='/search';
 	}
 
   return (
