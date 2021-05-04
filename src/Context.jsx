@@ -7,9 +7,16 @@ const Context = React.createContext();
 export const ServiceProvider = (props) => {
   const [movieData, setMovieData] = useState([]);
 
-  async function fetchMovies(){
-      await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`)
-      .then(response => setMovieData(response.data.results))
+  async function fetchMovies() {
+    let response;
+    try {
+      response = await axios.get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`
+      );
+      setMovieData(response.data.results);
+    } catch (err) {
+      console.log("There was a problem with the request");
+    }
   }
 
   return ( 
