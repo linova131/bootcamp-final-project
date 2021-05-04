@@ -3,7 +3,7 @@ import Context from "../Context";
 import MovieContainer from "./MovieContainer";
 
 function Home() {
-  const { movieData, fetchMovies } = useContext(Context);
+  const { movieData, fetchMovies, searchResults } = useContext(Context);
 
   useEffect(() => {
     fetchMovies();

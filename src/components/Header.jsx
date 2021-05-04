@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import Context from '../Context';
 
 function Header() {
+	const {performSearch} = useContext(Context);
+	const [query, setQuery] = useState('');
+	const searchbar = useRef('');
+
+	function handleChange() {
+		setQuery(searchbar.current.value);
+		console.log(query)
+	}
+
+	function handleSubmit(e) {
+		e.preventDefault();
+		performSearch(query);
+	}
 
   return (
     <div>
@@ -11,7 +25,7 @@ function Header() {
 						<img src="images/logo.png" alt="" className="logo" />
 						<div className="logo-copy">
 							<h1 className="site-title">JJSMHL Movie Site</h1>
-							{/* <small className="site-description">Tagline goes here</small> */}
+							<small className="site-description">Free us</small>
 						</div>
 					</a> 
 
@@ -19,16 +33,17 @@ function Header() {
 						<button type="button" className="menu-toggle"><i className="fa fa-bars"></i></button>
 						<ul className="menu">
 							<li className="menu-item current-menu-item"><a href="/">Home</a></li>
-							<li className="menu-item"><a href="about.html">About</a></li>
-							<li className="menu-item"><a href="review.html">Movie reviews</a></li>
-							<li className="menu-item"><a href="joinus.html">Join us</a></li>
-							<li className="menu-item"><a href="contact.html">Contact</a></li>
+							<li className="menu-item"><a href="/">About</a></li>
+							<li className="menu-item"><a href="/">Movie reviews</a></li>
+							<li className="menu-item"><a href="/">Join us</a></li>
+							<li className="menu-item"><a href="/">Contact</a></li>
 						</ul>
 
-						<form action="#" className="search-form">
-							<input type="text" placeholder="Search..." />
-							<button><i className="fa fa-search" ></i></button>
+						<form onSubmit={handleSubmit}>
+							<input type="search" ref={searchbar} onChange={handleChange} placeholder="Search..." />
+							<button>Go</button>
 						</form>
+
 					</div>
 				</div>
 			</header>
