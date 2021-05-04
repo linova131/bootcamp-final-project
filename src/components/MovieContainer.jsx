@@ -4,7 +4,7 @@ import Context from '../Context';
 
 function MovieContainer(props) {
   const movieData = useContext(Context);
-  // const data = props.data;
+
   console.log(movieData);
   let movies = [];
   if (movieData) {
