@@ -1,10 +1,12 @@
 import React, {useRef, useState, useContext} from 'react';
+import {useHistory} from 'react-router-dom';
 import Context from '../Context';
 
 function Header(props) {
-	const {performSearch} = useContext(Context);
+	const {performSearch, searchResults} = useContext(Context);
 	const [query, setQuery] = useState('');
 	const searchbar = useRef('');
+	let history = useHistory();
 
 	function handleChange() {
 		setQuery(searchbar.current.value);
@@ -14,7 +16,8 @@ function Header(props) {
 	function handleSubmit(e) {
 		e.preventDefault();
 		performSearch(query);
-		window.location.href='/search';
+		console.log(searchResults)
+		history.push('/search')
 	}
 
   return (

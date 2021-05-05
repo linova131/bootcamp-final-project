@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MovieContainer from './components/MovieContainer';
 import Context from './Context';
+import Search from './components/Search';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     <Switch>
       <Route exact path='/' component={Home}></Route>
       <Route path='/movies/:id' component={MovieDetail}></Route>
-      <Route path='/search' render={() => <MovieContainer data={searchResults}/>}></Route>
+      <Route path='/search' component={Search}></Route>
     </Switch>
     </div>
     <Footer />
