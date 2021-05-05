@@ -5,13 +5,12 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import MovieDetail from './components/MovieDetail';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import MovieContainer from './components/MovieContainer';
 import Context from './Context';
 import Search from './components/Search';
+import Random from './components/Random';
 
 
 function App() {
-  const {searchResults} = useContext(Context);
 
   return (
     <BrowserRouter>
@@ -21,6 +20,7 @@ function App() {
       <Route exact path='/' component={Home}></Route>
       <Route path='/movies/:id' component={MovieDetail}></Route>
       <Route path='/search' component={Search}></Route>
+      <Route path='/random' component={Random}></Route>
     </Switch>
     </div>
     <Footer />
