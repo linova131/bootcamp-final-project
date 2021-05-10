@@ -23,7 +23,7 @@ export const ServiceProvider = (props) => {
       })
   }
 
-  async function fetchFutureMovies(year, month, gte, lte){
+  async function fetchFutureMovies(){
     let dates = [];
     for(let i=1; i<4; i++) {
       let individualDate = []

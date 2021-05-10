@@ -282,6 +282,9 @@ h6 {
   font-weight: 700;
   margin: 0 0 20px;
 }
+.search-titles {
+  text-align: center;
+}
 
 hr {
   border: none;

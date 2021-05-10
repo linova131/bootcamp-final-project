@@ -1,13 +1,12 @@
 import React from "react";
-import Movie from "./Movie";
+import {Link} from 'react-router-dom'
 
-function MovieContainer(props) {
+function SearchResults(props) {
   const data = props.data;
   let movies = [];
 
-  for (let i = 0; i <= 2; i++) {
+  for (let i = 0; i < 9; i++) {
     const title = data[i].original_title;
-    const description = data[i].overview;
     const id = data[i].id;
 
     function buildMoviePoster(movieData) {
@@ -18,15 +17,21 @@ function MovieContainer(props) {
     const poster = buildMoviePoster();
 
     movies.push(
-      <Movie
-        key={id}
-        id={id}
-        title={title}
-        description={description}
-        poster={poster}
-      />
+        <Link key={id} to={`/movies/${id}`}>
+          <ul className="slides list-unstyled">
+            <li className="col-sm-6 col-md-4">
+              <img src={poster} className="img-thumbnail" alt={title}></img>
+              <h6>{title}</h6>
+            </li>
+          </ul>
+        </Link>
     );
   }
+
+
+
+
+
   return (  
   <React.Fragment>
     {movies}
@@ -34,4 +39,4 @@ function MovieContainer(props) {
   );
 }
 
-export default MovieContainer;
+export default SearchResults;

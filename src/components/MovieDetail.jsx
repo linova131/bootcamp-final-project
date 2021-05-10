@@ -26,6 +26,7 @@ function MovieDetail() {
         setOverview(response.data.overview)
         setRuntime(response.data.runtime)
         setRating(response.data.vote_average)
+        
         const actorData = response.data.credits.cast;
         if (actorData.length > 0) {
           let names = [];
@@ -35,6 +36,7 @@ function MovieDetail() {
           names = names.join(', ')
           setActors(names)
         }
+        
         const crewData = response.data.credits.crew;
         let directorNames = [];
         for (let x=0; x<crewData.length; x++) {
@@ -44,7 +46,8 @@ function MovieDetail() {
         }
         directorNames = directorNames.join(', ')
         setDirectors(directorNames)
-        })
+        
+      })
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`)
       .then((response) => {
