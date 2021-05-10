@@ -7,7 +7,7 @@ function Movie(props) {
       <Link key={props.id} to={`/movies/${props.id}`}>
         <ul className="slides list-unstyled">
           <li className="col-md-4">
-            <img src={props.poster} className="img-thumbnail"></img>
+            <img src={props.poster} className="img-thumbnail" alt={props.title}></img>
             <h1 className="theme-dark">{props.title}</h1>
             <p>{props.description}</p>
           </li>

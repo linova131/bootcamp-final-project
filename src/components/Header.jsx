@@ -3,20 +3,18 @@ import { useHistory } from "react-router-dom";
 import Context from "../Context";
 
 function Header(props) {
-  const { performSearch, searchResults } = useContext(Context);
+  const { performSearch } = useContext(Context);
   const [query, setQuery] = useState("");
   const searchbar = useRef("");
   let history = useHistory();
 
   function handleChange() {
     setQuery(searchbar.current.value);
-    console.log(query);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     performSearch(query);
-    console.log(searchResults);
     history.push("/search");
   }
 
@@ -28,8 +26,8 @@ function Header(props) {
             <a href="/" id="branding">
               <img src="images/logo.png" alt="" className="logo" />
               <div className="logo-copy">
-                <h1 className="site-title">JJSMHL Movie Site</h1>
-                <small className="site-description">Free us</small>
+                <h1 className="site-title">IMDB Knockoff</h1>
+                <small className="site-description">Please don't sue us, IMDB</small>
               </div>
             </a>
 

@@ -27,7 +27,6 @@ function MovieContainer(props) {
       />
     );
   }
-  console.log(typeof movies);
   return (  
   <React.Fragment>
     {/* {(data.length > 0)
