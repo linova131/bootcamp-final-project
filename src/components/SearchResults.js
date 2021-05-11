@@ -5,13 +5,18 @@ function SearchResults(props) {
   const data = props.data;
   let movies = [];
 
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < data.length; i++) {
     const title = data[i].original_title;
     const id = data[i].id;
 
     function buildMoviePoster(movieData) {
       let filePath = data[i].poster_path;
-      return `https://image.tmdb.org/t/p/w200/${filePath}`;
+      if (filePath) {
+        return `https://image.tmdb.org/t/p/w200/${filePath}`;
+      } else {
+        return 'https://via.placeholder.com/200x300';
+      }
+      
     }
 
     const poster = buildMoviePoster();

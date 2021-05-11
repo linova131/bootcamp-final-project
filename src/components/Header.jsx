@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Context from "../Context";
 
 function Header(props) {
-  const { performSearch } = useContext(Context);
+  const { performSearch, setSearchTerm } = useContext(Context);
   const [query, setQuery] = useState("");
   const searchbar = useRef("");
   let history = useHistory();
@@ -14,7 +14,8 @@ function Header(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    performSearch(query);
+    performSearch(query, 1);
+    setSearchTerm(query);
     history.push("/search");
   }
 

@@ -10,14 +10,15 @@ export const ServiceProvider = (props) => {
   const [movieData, setMovieData] = useState([]);
   const [searchResults, setSearchResults] = useState([])
   const [futureMovies, setFutureMovies] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   async function fetchMovies(){
       await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
       .then(response => setMovieData(response.data.results))
   }
 
-  async function performSearch(query){
-    await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`)
+  async function performSearch(query, page){
+    await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}&include_adult=false`)
      .then((response) => {
       setSearchResults(response.data.results)
       })
@@ -47,7 +48,7 @@ export const ServiceProvider = (props) => {
   }
 
   return ( 
-    <Context.Provider value={{movieData, fetchMovies, performSearch, searchResults, fetchFutureMovies, futureMovies}}>{props.children}</Context.Provider>
+    <Context.Provider value={{movieData, fetchMovies, performSearch, searchResults, fetchFutureMovies, futureMovies, searchTerm, setSearchTerm}}>{props.children}</Context.Provider>
   )
 }
 
