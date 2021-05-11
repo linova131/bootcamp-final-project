@@ -15,35 +15,24 @@ function PremiereList(props) {
   let movies2 = []
   let movies3 = []
   
-  for(let i=0; i<3; i++) {
-    if(i === 0) {
-      let results = data[i].data.results
-      for (let i=0; i<results.length; i++) {
-        let movie = <li>
-                      <div class="date">{results[i].release_date}</div>
-                      <h2 class="entry-title"><Link to={`/movies/${results[i].id}`}>{results[i].title}</Link></h2>
-                    </li>
-        movies1.push(movie);
-      }
-    } else if (i === 1) {
-      let results = data[i].data.results
-      for (let i=0; i<results.length; i++) {
-        let movie = <li>
-                      <div class="date">{results[i].release_date}</div>
-                      <h2 class="entry-title"><Link to={`/movies/${results[i].id}`}>{results[i].title}</Link></h2>
-                    </li>
-        movies2.push(movie);
-      }
-    } else if (i === 2) {
-      let results = data[i].data.results
-      for (let i=0; i<results.length; i++) {
-        let movie = <li>
-                      <div class="date">{results[i].release_date}</div>
-                      <h2 class="entry-title"><Link to={`/movies/${results[i].id}`}>{results[i].title}</Link></h2>
-                    </li>
-        movies3.push(movie);
-      }
+  function createList(i) {
+    let results = data[i].data.results
+    let list = []
+    for (let i=0; i<results.length; i++) {
+      let movie = <li>
+                    <div class="date">{results[i].release_date}</div>
+                    <h2 class="entry-title"><Link to={`/movies/${results[i].id}`}>{results[i].title}</Link></h2>
+                  </li>
+      list.push(movie); 
     }
+    return list
+  }
+
+
+  for(let i=0; i<3; i++) {
+    (i === 0) ? movies1 = createList(i) :
+    (i === 1) ? movies2 = createList(i) :
+    movies3 = createList(i)
   }
   
   
