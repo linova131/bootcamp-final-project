@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import List from './List'
 const moment = require('moment');
 moment().format();
 
@@ -28,6 +29,14 @@ function PremiereList(props) {
     return list
   }
 
+  function createPreview(movieList) {
+    let list = []
+    for (let i=0; i<3; i++) {
+      list.push(movieList[i])
+    }
+    return list
+  }
+
 
   for(let i=0; i<3; i++) {
     (i === 0) ? movies1 = createList(i) :
@@ -39,25 +48,10 @@ function PremiereList(props) {
   return (  
   <React.Fragment>
         <div className="row">
-							<div className="col-md-4">
-								<h2 className="section-title">{months[0]} Premieres</h2>
-								<ul className="movie-schedule">
-                  {movies1}
-								</ul>
-							</div>
-							<div className="col-md-4">
-								<h2 className="section-title">{months[1]} Premieres</h2>
-								<ul className="movie-schedule">
-                  {movies2}
-								</ul> 
-							</div>
-							<div class="col-md-4">
-								<h2 class="section-title">{months[2]} Premieres</h2>
-								<ul class="movie-schedule">
-                  {movies3}
-								</ul> 
-							</div>
-						</div> 
+          <List month={months[0]} movies={movies1} preview={createPreview(movies1)} />
+					<List month={months[1]} movies={movies2} preview={createPreview(movies2)} />
+          <List month={months[2]} movies={movies3} preview={createPreview(movies3)} />		
+				</div> 
   </React.Fragment>
   );
 }
