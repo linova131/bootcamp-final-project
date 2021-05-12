@@ -7,14 +7,7 @@ function Search() {
   const { searchResults, searchTerm } = useContext(Context);
   let titles = []
 
-
-
-  if (searchResults > 0) {
-    for(let i=0; i<searchResults.length; i++) {
-      titles.push(searchResults[i].title)
-    }
-  }
-
+  console.log(searchResults)
 
   return (
     <main className="main-content">

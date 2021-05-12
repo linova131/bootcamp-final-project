@@ -20,6 +20,7 @@ export const ServiceProvider = (props) => {
   async function performSearch(query, page){
     await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}&include_adult=false`)
      .then((response) => {
+       console.log(response.data)
       setSearchResults(response.data.results)
       })
   }
